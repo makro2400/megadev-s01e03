@@ -1,0 +1,14 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>#4471 · three problems, not one</title>
+<body style="font-family:system-ui;max-width:42rem;margin:2rem auto;padding:0 1rem">
+<h1>#4471 · three problems, not one</h1>
+<p>owner: support desk · status: living · reviewed: 2026-11-01</p>
+<p><a href="/kb/incidents/4471">#4471</a> merged 412 reports as one known issue. They are three problems.</p>
+<table border="1" cellpadding="6"><thead><tr><th>problem</th><th>reports</th></tr></thead><tbody>
+<tr><td>parser reads month first</td><td>374</td></tr>
+<tr><td>booking-v3 form hints MM/DD/YYYY</td><td>33</td></tr>
+<tr><td>booking lands one day off</td><td>5</td></tr>
+</tbody><tfoot><tr><td>merged into #4471</td><td>412</td></tr></tfoot></table>
+<h2>1. The parser reads dates month first</h2><p>The shared parser reads every date month first. Tenants that write the day first get their dates flipped: 3 October becomes 10 March. The fix queued for #4471 covers it.</p>
+<h2>2. The booking-v3 form hints MM/DD/YYYY</h2><p>Three day-first tenants run booking-v3: alder.physio, copper.studio and pale.harbour. The form prints MM/DD/YYYY under the date field, so their people type month first. The parser fix does not touch this.</p>
+<h2>3. Bookings land one day off</h2><p>Five reports are a move of one day, not a flipped day and month. This points to time zones. The desk's notes list them as one-day moves, but the desk's table files them under the parser by tenant.</p>
+<p class="stamp">desk ref <b>DR-KSDQ-PX68</b></p></body></html>

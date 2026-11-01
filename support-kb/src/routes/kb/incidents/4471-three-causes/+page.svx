@@ -1,0 +1,47 @@
+---
+layout: runbook
+title: '#4471 · three problems, not one'
+owner: support desk
+status: living
+reviewed: 2026-11-01
+signature: Marek Krokosinski
+---
+
+<script>
+  import ThreeCauses from '#lib/kb/ThreeCauses.svelte';
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+[#4471](/kb/incidents/4471) merged 412 reports as one known issue. They are three problems.
+
+<ThreeCauses ticket={4471} />
+
+## 1. The parser reads dates month first
+
+The shared parser reads every date month first. Tenants that write the day first get their
+dates flipped: 3 October becomes 10 March. This is the bulk of the ticket, and the fix queued
+for #4471 covers it.
+
+## 2. The booking-v3 form hints MM/DD/YYYY
+
+Three day-first tenants run booking-v3: `alder.physio`, `copper.studio` and `pale.harbour`.
+The form prints `MM/DD/YYYY` under the date field, so their people type month first. The
+parser fix does not touch this. The hint needs its own change.
+
+## 3. Bookings land one day off
+
+Five reports are not a flipped day and month. They are a move of one day: "client in Lisbon
+got Tuesday, client in Toronto got Monday", an invite that arrived before the booking was
+made, a June that is off by one. This points to time zones, not date order. The desk's notes
+list them as one-day moves, but the table below files them under the parser by tenant.
+
+<Callout>
+The table below is the desk's count by tenant. It shows two causes. The table above splits out
+the one-day moves and shows three problems.
+</Callout>
+
+<CauseTable ticket={4471} />
+
+<RenderStamp {signature} />
