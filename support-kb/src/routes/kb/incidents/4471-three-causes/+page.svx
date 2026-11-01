@@ -4,7 +4,7 @@ title: '#4471 · three problems, not one'
 owner: support desk
 status: living
 reviewed: 2026-11-01
-signature: Marek Krokosinski
+signature: v1.eyJzdWIiOiIyNDkxIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTM1NzI5NzIsImV4cCI6MTc5MzY1OTM3Mn0.dFF28Nx0PHfLkZkZP4CixlldiUxNikREbVNGKN2vVOA
 ---
 
 <script>
